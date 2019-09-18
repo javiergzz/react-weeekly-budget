@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import 'antd/dist/antd.js'; 
 import { Layout, Breadcrumb } from 'antd';
 import Head from './components/Header';
+import Question from './components/Question';
 const { Content, Footer } = Layout;
 
 function App() {
@@ -14,7 +15,9 @@ function App() {
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>Weekly</Breadcrumb.Item>
         </Breadcrumb>
-        <div style={{ background: '#fff', padding: 24, minHeight: 800 }}>Content</div>
+        <div style={{ background: '#fff', padding: 24, minHeight: 820 }}>
+          <Question/>
+        </div>
       </Content>
     <Footer style={{ textAlign: 'center' }}>Adparatio DEsign ©2019 Created by Javier</Footer>
 
