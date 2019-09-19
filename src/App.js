@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css'; 
 import 'antd/dist/antd.js'; 
 import { Layout, Breadcrumb } from 'antd';
@@ -6,6 +6,7 @@ import { Row, Col } from 'antd';
 import Head from './components/Header';
 import Question from './components/Question';
 import BudgetForm from './components/BudgetForm';
+import ExpenseList from './components/ExpenseList';
 const { Content, Footer } = Layout;
 
 function App() {
@@ -15,6 +16,11 @@ function App() {
   const [askBudget, setAskBudget] = useState(true);
   const [expense, setExpense] = useState({});
   const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    const expenseList = [...expenses, expense];
+    setExpenses(expenseList);
+  }, []);
 
   return (
     <Layout className="layout">
@@ -38,7 +44,11 @@ function App() {
                       setExpense={setExpense}
                     />
                   </Col>
-                  <Col span={12}>col-12</Col>
+                  <Col span={12}>
+                    <ExpenseList
+                      expenses={expenses}
+                    />
+                  </Col>
                 </Row>
               </div>
             )
