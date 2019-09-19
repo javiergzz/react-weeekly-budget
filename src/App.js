@@ -7,12 +7,14 @@ import Head from './components/Header';
 import Question from './components/Question';
 import BudgetForm from './components/BudgetForm';
 import ExpenseList from './components/ExpenseList';
+import BudgetControl from './components/BudgetControl';
 const { Content, Footer } = Layout;
 
 function App() {
 
   // state
   const [budget, setBudget] = useState(0);
+  const [remaining, setRemaining] = useState(0);
   const [askBudget, setAskBudget] = useState(true);
   const [createExpense, setCreateExpense] = useState(false);
   const [expense, setExpense] = useState({});
@@ -39,6 +41,7 @@ function App() {
               <Question 
               setBudget={setBudget}
               setAskBudget={setAskBudget}
+              setRemaining={setRemaining}
               />
             : (
               <div>
@@ -52,6 +55,10 @@ function App() {
                   <Col span={12}>
                     <ExpenseList
                       expenses={expenses}
+                    />
+                    <BudgetControl
+                      budget={budget}
+                      remaining={remaining}
                     />
                   </Col>
                 </Row>
