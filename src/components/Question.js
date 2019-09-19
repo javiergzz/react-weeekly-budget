@@ -2,8 +2,9 @@ import React, { Fragment, useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import { Alert } from 'antd';
 
-const Question = () => {
+const Question = (props) => {
 
+  const { setBudget } = props;
   // define state
   const [amount, setAmount] = useState(0);
   const [error, setError] = useState(false);
@@ -16,10 +17,10 @@ const Question = () => {
       setError(true);
       return;
     }
-    setError(false);
-
+    
     // send budget to main component
-
+    setError(false);
+    setBudget(amount);
   };
 
   return (

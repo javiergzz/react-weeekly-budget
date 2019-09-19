@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'antd/dist/antd.css'; 
 import 'antd/dist/antd.js'; 
 import { Layout, Breadcrumb } from 'antd';
@@ -7,6 +7,9 @@ import Question from './components/Question';
 const { Content, Footer } = Layout;
 
 function App() {
+
+  // state
+  const [budget, setBudget] = useState(0);
   return (
     <Layout className="layout">
       <Head/>
@@ -16,7 +19,7 @@ function App() {
           <Breadcrumb.Item>Weekly</Breadcrumb.Item>
         </Breadcrumb>
         <div style={{ background: '#fff', padding: 24, minHeight: 820 }}>
-          <Question/>
+          <Question setBudget={setBudget}/>
         </div>
       </Content>
     <Footer style={{ textAlign: 'center' }}>Adparatio DEsign ©2019 Created by Javier</Footer>
