@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
-import { Alert } from 'antd';
+import { Alert, Divider } from 'antd';
+import { checkBudget } from '../helpers';
 
 const BudgetControl = ({budget, remaining}) => {
   return (
     <Fragment>
       <Alert message={`Budget: $${budget}`} type="info" showIcon />
-      <Alert message={`Remaining: $${remaining}`} type="warning" showIcon />
+      <Divider dashed />
+      <Alert message={`Remaining: $${remaining}`} type={checkBudget(budget, remaining)} showIcon />
     </Fragment>
   );
 };

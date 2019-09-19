@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css'; 
 import 'antd/dist/antd.js'; 
-import { Layout, Breadcrumb } from 'antd';
-import { Row, Col } from 'antd';
+import { Layout, Breadcrumb, Row, Col } from 'antd';
 import Head from './components/Header';
 import Question from './components/Question';
 import BudgetForm from './components/BudgetForm';
@@ -24,6 +23,9 @@ function App() {
     if(createExpense){
       const expenseList = [...expenses, expense];
       setExpenses(expenseList);
+      // substrac budget
+      const budgetRemaining = remaining - expense.amount;
+      setRemaining(budgetRemaining);
       setCreateExpense(false);
     }
   }, [createExpense]);
