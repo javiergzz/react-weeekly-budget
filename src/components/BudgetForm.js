@@ -1,21 +1,36 @@
 import React, { Fragment, useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import { Alert } from 'antd';
+import shortid from 'shortid';
 
 const BudgetForm = (props) => {
 
+  const { setExpense } = props;
   // state
-  const [name, setName] = useState(0);
-  const [amount, setAmount] = useState('');
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState(0);
   const [error, setError] = useState(false);
 
   const addExpense = e => {
     e.preventDefault();
     // validate
-    if(amount < 1 || NaN(amount) || name === ''){
+    if(amount < 1 || isNaN(amount) || name === ''){
       setError(true);
       return;
     }
+    // build expense object
+    const expense = {
+      name, 
+      amount,
+      id: shortid.generate()
+    }
+    // send expense to main component
+    setExpense(expense);
+    // delete alert
+    setError(false);
+    // reset form
+    setName('');
+    setAmount(0);
   }
 
   return (
@@ -29,12 +44,14 @@ const BudgetForm = (props) => {
           <Input 
             placeholder="i.e. Bus ticket" 
             onChange={e => setName(e.target.value)}
+            value={name}
             style={{width: 200}}/>
         </Form.Item>
         <Form.Item label="Enter your amount expense">
           <Input 
             placeholder="i.e. 20" 
             type="number"
+            value={amount}
             onChange={e => setAmount(parseInt(e.target.value, 10))}
             style={{width: 200}}/>
         </Form.Item>
