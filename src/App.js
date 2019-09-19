@@ -14,13 +14,17 @@ function App() {
   // state
   const [budget, setBudget] = useState(0);
   const [askBudget, setAskBudget] = useState(true);
+  const [createExpense, setCreateExpense] = useState(false);
   const [expense, setExpense] = useState({});
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
-    const expenseList = [...expenses, expense];
-    setExpenses(expenseList);
-  }, []);
+    if(createExpense){
+      const expenseList = [...expenses, expense];
+      setExpenses(expenseList);
+      setCreateExpense(false);
+    }
+  }, [createExpense]);
 
   return (
     <Layout className="layout">
@@ -42,6 +46,7 @@ function App() {
                   <Col span={12}>
                     <BudgetForm
                       setExpense={setExpense}
+                      setCreateExpense={setCreateExpense}
                     />
                   </Col>
                   <Col span={12}>

@@ -5,7 +5,7 @@ import shortid from 'shortid';
 
 const BudgetForm = (props) => {
 
-  const { setExpense } = props;
+  const { setExpense, setCreateExpense } = props;
   // state
   const [name, setName] = useState('');
   const [amount, setAmount] = useState(0);
@@ -26,6 +26,7 @@ const BudgetForm = (props) => {
     }
     // send expense to main component
     setExpense(expense);
+    setCreateExpense(true);
     // delete alert
     setError(false);
     // reset form
