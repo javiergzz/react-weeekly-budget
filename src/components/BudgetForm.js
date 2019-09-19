@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Form, Input, Button } from 'antd';
+import { Alert } from 'antd';
 
 const BudgetForm = (props) => {
 
@@ -20,6 +21,9 @@ const BudgetForm = (props) => {
   return (
     <Fragment>
       <h2>Add your expenses here</h2>
+
+      { error ? <Alert message="Both fields are required" type="error" style={{width: 200, marginBottom: 12 }} /> : null }
+
       <Form layout="vertical" onSubmit={addExpense}>
         <Form.Item label="Enter your expense">
           <Input 
