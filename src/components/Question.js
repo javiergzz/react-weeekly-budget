@@ -34,6 +34,7 @@ const Question = (props) => {
         <Form.Item label="Enter the amount you would like to spend each week">
           <Input 
             placeholder="Your budget" 
+            type="number"
             onChange={e => setAmount(parseInt(e.target.value, 10))}
             style={{width: 200}}/>
         </Form.Item>

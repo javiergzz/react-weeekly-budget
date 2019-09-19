@@ -5,6 +5,7 @@ import { Layout, Breadcrumb } from 'antd';
 import { Row, Col } from 'antd';
 import Head from './components/Header';
 import Question from './components/Question';
+import BudgetForm from './components/BudgetForm';
 const { Content, Footer } = Layout;
 
 function App() {
@@ -30,7 +31,9 @@ function App() {
             : (
               <div>
                 <Row>
-                  <Col span={12}>Form here</Col>
+                  <Col span={12}>
+                    <BudgetForm/>
+                  </Col>
                   <Col span={12}>col-12</Col>
                 </Row>
               </div>
