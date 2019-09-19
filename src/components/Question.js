@@ -4,7 +4,7 @@ import { Alert } from 'antd';
 
 const Question = (props) => {
 
-  const { setBudget } = props;
+  const { setBudget, setAskBudget } = props;
   // define state
   const [amount, setAmount] = useState(0);
   const [error, setError] = useState(false);
@@ -21,6 +21,7 @@ const Question = (props) => {
     // send budget to main component
     setError(false);
     setBudget(amount);
+    setAskBudget(false);
   };
 
   return (
