@@ -4,7 +4,7 @@ import { Descriptions } from 'antd';
 const Expense = ({expense}) => {
   return (
     <Descriptions title={expense.name}>
-    <Descriptions.Item label="Amount">{expense.amount}</Descriptions.Item>
+    <Descriptions.Item label="Amount">${expense.amount}</Descriptions.Item>
   </Descriptions>
   );
 };
